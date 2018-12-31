@@ -5,21 +5,17 @@
   "author": "muhammet ali petek <malipetek@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "dev": "node build/dev-server.js",
+    "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "babel": "6.23.0",
     "firebase": "^5.0.2",
-    "stylus": "0.54.5",
-    "stylus-loader": "3.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuefire": "^1.4.5",
-    "vuetify": "1.3.15",
+    "vuetify": "^1.0.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -28,6 +24,7 @@
     "sw-precache-webpack-plugin": "^0.11.4",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-imports": "^1.4.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
@@ -48,8 +45,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.16.2",
-    "jest": "^22.0.4",
-    "jest-serializer-vue": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
     "friendly-errors-webpack-plugin": "^1.6.1",
@@ -75,8 +70,12 @@
     "uglify-es": "^3.1.3"
   },
   "engines": {
-    "node": ">= 6.0.0",
+    "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
