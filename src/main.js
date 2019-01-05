@@ -19,9 +19,12 @@ import {
   VAvatar,
   VDivider,
   VCard,
+  VTextField,
   transitions
 } from 'vuetify'
+
 import '../node_modules/vuetify/src/stylus/app.styl'
+import './stylus/main.styl'
 
 Vue.use(Vuetify, {
   components: {
@@ -36,6 +39,7 @@ Vue.use(Vuetify, {
     VAvatar,
     VDivider,
     VCard,
+    VTextField,
     transitions
   },
   theme: {

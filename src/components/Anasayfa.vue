@@ -3,16 +3,11 @@
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center class="mb-5">
         <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-1" style="width: 150px">
-          <h1>Anasayfa </h1>
-          <v-btn
-            color="orange lighten-1"
-            >
+          <v-btn to="/saved" large color="orange darken-1" style="width: 200px">
           <v-icon >library_books</v-icon>
             &nbsp;&nbsp;Tarif Defterim
           </v-btn>
-          <v-btn
-          color="blue lighten-1"
-          >
+          <v-btn to="/search" large color="blue lighten-1" style="width: 200px">
           <v-icon> search </v-icon>
             &nbsp;&nbsp;Tarif Ara
           </v-btn>

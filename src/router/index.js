@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Anasayfa from '@/components/Anasayfa'
 import Tarif from '@/components/Tarif'
 import Hesap from '@/components/Hesap'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -28,6 +29,12 @@ export default new Router({
       path: '/hesap/:action',
       name: 'hesap',
       component: Hesap
+    },
+
+    {
+      path: '/search/',
+      name: 'search',
+      component: Search
     }
   ]
 })

@@ -12,15 +12,15 @@
       >
         <v-list-tile
           v-for="(item, i) in items"
-          :to="'/tarif/' + (item.handle || 'default-tarif')"
+          :to="item.handle"
           :key="i"
-          :color="item.color"
+          ripple
         >
-          <v-list-tile-action>
-            <v-icon :color="item.color">{{item.icon}}</v-icon>
+          <v-list-tile-action :class="'text--'+item.color.replace(' ','-')">
+            <v-icon >{{item.icon}}</v-icon>
           </v-list-tile-action>
-            <v-list-tile-title :color="item.color" :class="'text--'+item.color.replace(' ','-')" >
-              <div class="subheading">{{item.title}}</div>
+            <v-list-tile-title >
+              <div class="subheading">{{item.title}} </div>
             </v-list-tile-title>
         </v-list-tile>        
       </v-list>
@@ -42,9 +42,10 @@
       <!-- <v-btn class="white--text" icon @click.stop="fixed = !fixed">
         <v-icon>remove</v-icon>
       </v-btn> -->
-        <v-btn color="white" flat to="/">
-        {{title}}
-        </v-btn>
+      <router-link to="/">
+          <v-toolbar-title class="white--text">   {{title}} </v-toolbar-title>
+      </router-link>
+
       <v-spacer></v-spacer>
        <v-avatar
             :size=45
@@ -87,19 +88,12 @@
           </v-list-tile-action>
           <v-list-tile-title class="">  Hesabım  </v-list-tile-title>
         </v-list-tile>
-        <v-list-tile to="/hesap/sign-in">
+        <v-list-tile v-else="" to="/hesap/sign-in">
           <v-list-tile-action>
             <v-icon> person </v-icon>
           </v-list-tile-action>
-          <v-list-tile-title class="">  Giriş Yap  </v-list-tile-title>
+          <v-list-tile-title class="">  Giriş Yap/ Kayıt Ol </v-list-tile-title>
         </v-list-tile>
-          <v-list-tile to="/hesap/sign-up">
-          <v-list-tile-action>
-            <v-icon> person_add </v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class=""> Kayıt Ol </v-list-tile-title>
-        </v-list-tile>
-
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="true" app>
@@ -122,13 +116,15 @@ export default {
       drawer: false,
       rightDrawer: false,
       items: [{
-        icon: 'search',
-        title: 'Tarif Ara',
-        color: 'blue lighten-1'
-      }, {
         icon: 'library_books',
         title: 'Tarif Defterim',
-        color: 'orange lighten-1'
+        color: 'orange lighten-1',
+        handle: 'saved'
+        }, { 
+        icon: 'search',
+        title: 'Tarif Ara',
+        color: 'blue lighten-1',
+        handle: 'search'
       }],
       title: 'Yemek Tarifleri'
     }
